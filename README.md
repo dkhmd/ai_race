@@ -290,6 +290,10 @@ rqt, joystick, 各種コントローラーで車両操作し、学習用のデ�
 以下を実行することで、keyboardから車両操作ができます。<br>
 
 ```
+### make ROSbag directory
+mkdir -p ~/Images_from_rosbag
+sudo chmod 777 ~/Images_from_rosbag
+
 cd ~/catkin_ws/src/ai_race/ai_race/utility/scripts
 python keyboard_con_pygame_videosave.py
 
@@ -324,24 +328,21 @@ d 右にまがる
 ```
 ## 学習用データ取得
 ## rosbag取得
-roslaunch sim_environment rosbag.launch output_path:=<出力ファイルのディレクトリ 絶対パス指定>
-rqt # rqtを使う場合。robot steering -> 車両制御パラメータ（v,rad）指定
+roslaunch sim_environment rosbag.launch
 
 ## rosbag --> image/command 変換
 cd ~/catkin_ws/src/ai_race/ai_race/utility/scripts
-mkdir -p /Images_from_rosbag
-sudo chmod 777 /Images_from_rosbag
-python rosbag_to_images_and_commands.py **.bag   # bagファイルから学習用データ（画像と車両制御パラメータ）を取得
-python listup_all_rosbag_timestamp.py *.bag               # 時刻表示できる
+python rosbag_to_images_and_commands.py --bagFilename <hoge>.bag  # bagファイルから学習用データ（画像と車両制御パラメータ）を取得 ex) ~/_2021-01-11-02-05-11.bag 
+python listup_all_rosbag_timestamp.py <hoge>.bag               # 時刻表示できる
 ```
 
 * Step2.学習用データから、学習モデルを作成
 
 ```
 ## 学習 
-cd learning/scripts (学習用フォルダへ移動) 
+cd ~/catkin_ws/src/ai_race/ai_race/learning/scripts/ (学習用フォルダへ移動) 
 python3 train.py --data_csv <csvのパス フルパス指定> --model_name <保存するモデル名>  
-#### 実行ログ記載のディレクトリにモデルが保存されます
+#### 実行ログ記載のディレクトリにモデルが保存されます ex) python3 train.py --data_csv ~/Images_from_rosbag/_2021-01-11-02-05-11/_2021-01-11-02-05-11.csv --model_name con_20210111
 ```
 
 * Step3.学習モデルを使って推論、車両操作
