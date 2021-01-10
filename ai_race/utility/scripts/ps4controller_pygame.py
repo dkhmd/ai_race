@@ -50,10 +50,10 @@ class keyboardController:
         pygame.display.set_caption('keyboardcon')
 
         #コントロール方法表示
-        print 
-        print 'キーボード操作用'
-        print 'Aで左、Dで右にステアリング、Lで前進、Mで後退、離すと停止'
-        print 
+        #print 
+        #print 'キーボード操作用'
+        #print 'Aで左、Dで右にステアリング、Lで前進、Mで後退、離すと停止'
+        #print 
 
     def callback(self, data):
 	if data.buttons[2] == 1:
