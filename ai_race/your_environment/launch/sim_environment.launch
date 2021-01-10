@@ -5,6 +5,7 @@
   <arg name="controller" default="false" />
 
   <!-- This is your sim_environment setup launch file. -->
+  <node name="joy_node"	pkg="joy"	type="joy_node"/>
   <!-- If you want to get dataset from your original world, use this file. -->
   
   <!-- launch default sim_environment -->
