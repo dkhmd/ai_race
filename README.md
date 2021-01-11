@@ -345,6 +345,8 @@ python3 train.py --data_csv <csvのパス フルパス指定> --model_name <保�
 #### 実行ログ記載のディレクトリにモデルが保存されます ex) python3 train.py --data_csv ~/Images_from_rosbag/_2021-01-11-02-05-11/_2021-01-11-02-05-11.csv --model_name con_20210111
 ```
 
+Output path: ~/work/experiments/models/checkpoints/
+
 * Step3.学習モデルを使って推論、車両操作
 
 `bash prepare.sh`を実行した状態で、別ターミナルから以下を実行
