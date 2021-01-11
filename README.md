@@ -328,11 +328,19 @@ d 右にまがる
 ```
 ## 学習用データ取得
 ## rosbag取得
-roslaunch sim_environment rosbag.launch
+roslaunch sim_environment rosbag.launc
+```
+rosbagの確認
+```
+rosbag info <hoge>.bag
+```
 
+rosbag --> image/command 変換
+```
 ## rosbag --> image/command 変換
 cd ~/catkin_ws/src/ai_race/ai_race/utility/scripts
-python rosbag_to_images_and_commands.py --bagFilename <hoge>.bag  # bagファイルから学習用データ（画像と車両制御パラメータ）を取得 ex) ~/_2021-01-11-02-05-11.bag 
+python rosbag_to_images_and_commands.py --bagFilename <hoge>.bag  # bagファイルから学習用データ（画像と車両制御パラメータ）を取得 
+# ex) ~/_2021-01-11-02-05-11.bag 
 python listup_all_rosbag_timestamp.py <hoge>.bag               # 時刻表示できる
 ```
 
