@@ -351,7 +351,8 @@ python listup_all_rosbag_timestamp.py <hoge>.bag               # 時刻表示で
 cd ~/catkin_ws/src/ai_race/ai_race/learning/scripts/ (学習用フォルダへ移動) 
 python3 train.py --data_csv <csvのパス フルパス指定> --model_name <保存するモデル名>  
 #### 実行ログ記載のディレクトリにモデルが保存されます 
-ex) python3 train.py --data_csv ~/Images_from_rosbag/_2021-01-11-02-05-11/_2021-01-11-02-05-11.csv --model_name con_20210111
+ex) python3 train.py --data_csv /home/jetson/Images_from_rosbag/_2021-01-11-23-42-49_2/_2021-01-11-23-42-49.csv --model_name con_20210111
+
 ```
 
 Output path: ~/work/experiments/models/checkpoints/
